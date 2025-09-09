@@ -1,4 +1,4 @@
-# TechOps Hub: Comprehensive Course Outline for Tech Entrepreneurs
+# TechOps Hub: Course Outline for Tech Entrepreneurs
 
 This **TechOps Hub Open Source Training Program** is a **12-month (48-week) intensive program** designed to transform aspiring tech entrepreneurs into innovators capable of developing and launching **market-ready products**.
 
