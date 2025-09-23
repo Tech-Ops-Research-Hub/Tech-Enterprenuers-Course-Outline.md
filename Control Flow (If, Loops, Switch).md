@@ -200,7 +200,7 @@ switch (fruit) {
 
 * Submit your code file:
 
-  * Python → `assignment2.py`
-  * JavaScript → `assignment2.js`
+  * Python → `Control Flow.py`
+  * JavaScript → `Control Flow.js`
 
 ---
