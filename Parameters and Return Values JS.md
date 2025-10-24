@@ -1,5 +1,5 @@
 
-# 📘 Parameters and Return Values — Deep Practical Guide
+# 📘 Parameters and Return Values
 ---
 
 ## 🧩 Concept Overview
