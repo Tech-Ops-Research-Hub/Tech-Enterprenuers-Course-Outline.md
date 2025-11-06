@@ -1,180 +1,171 @@
-# Arrow Functions (Simplified Notes)
 
-Arrow function = a short way to write a function.
+# Arrow Functions
 
-It removes extra words and symbols.
+Arrow functions are just a shorter way to write functions.
 
-```
+They remove the `function` keyword and reduce extra syntax.
+
+Example:
+```js
 const add = (a, b) => a + b
-```
+````
 
-This means: take `a` and `b`, give back `a + b`.
+Meaning: take `a` and `b`, return `a + b`.
 
-If there is one thing to do, no need for `return`.
+---
 
-```
+## 1. When You Have One Line
+
+If the function has only one step, you do not write `return`.
+
+```js
 const double = x => x * 2
 ```
 
-If you write more than one line, you must use `{}` and `return`.
+Input: `x`
+Output: `x * 2`
 
-```
+---
+
+## 2. When You Have More Than One Line
+
+You must use `{}` and write `return`.
+
+```js
 const work = (x) => {
   const y = x + 1
   return y
 }
 ```
 
-If you want to give back an object, wrap it with parentheses:
+---
 
-```
+## 3. Returning an Object
+
+Objects must be wrapped in parentheses.
+Otherwise, JavaScript thinks you are starting a code block.
+
+Correct:
+
+```js
 const person = () => ({ name: "Sam" })
 ```
 
-Arrow functions do not make their own `this`. They use `this` from where they are written, not where they are used.
+Incorrect:
 
-They also do not have `arguments`. Use `(...args)` instead.
-
-They cannot be used with `new`. They do not create objects like a normal function constructor.
-
-They should not be used for object methods when you need `this`.
-
-```
-const obj = {
-  x: 5,
-  getX() { return this.x }
-}
+```js
+const person = () => { name: "Sam" } // returns nothing
 ```
 
-Use arrow functions for short tasks.
+---
 
+## 4. Arrow Functions and `this`
 
+Arrow functions **do not make their own `this`**.
+They use `this` from where they were written.
 
-Arrow functions are a shorter way to write functions. They use the surrounding `this` instead of creating a new one. They cannot be used with `new`.
+This works:
 
-## Basic Forms
-
-```
-const fn = () => value
-const fn = x => x + 1
-const fn = (x, y) => x + y
-```
-
-Return requires braces only when multiple statements exist:
-
-```
-const fn = () => {
-  const v = 1
-  return v + 1
-}
-```
-
-## Implicit Return
-
-```
-const multiply = (a, b) => a * b
-```
-
-## Returning Objects
-
-Wrap the object in parentheses:
-
-```
-const makeUser = () => ({ name: "Ada" })
-```
-
-## Parameters
-
-```
-() => 42
-x => x * 2
-(a, b) => a + b
-(...values) => values
-```
-
-## `this` Behavior
-
-Arrow functions use `this` from outer scope. They do not change `this`.
-
-Example:
-
-```
+```js
 function Counter() {
   this.count = 0
+
   setInterval(() => {
     this.count++
   }, 1000)
 }
 ```
 
-## No `arguments`
+The arrow function uses `this` from `Counter`.
 
-Use rest parameters instead:
+---
 
+## 5. Do Not Use Arrow Functions for Object Methods
+
+If a function inside an object needs `this`, use normal function syntax.
+
+Wrong:
+
+```js
+const obj = {
+  x: 5,
+  getX: () => this.x
+}
 ```
-const f = (...args) => args
-```
 
-## Not for Object Methods Requiring `this`
-
-Incorrect:
-
-```
-const obj = { x: 10, getX: () => this.x }
-```
+This does **not** refer to `obj`.
 
 Correct:
 
-```
-const obj = { x: 10, getX() { return this.x } }
+```js
+const obj = {
+  x: 5,
+  getX() { return this.x }
+}
 ```
 
-## Cannot Be Constructors
+---
 
+## 6. Arrow Functions Do Not Have `arguments`
+
+Use rest parameters instead.
+
+```js
+const f = (...args) => args
 ```
+
+---
+
+## 7. Arrow Functions Cannot Be Used With `new`
+
+They cannot create objects as constructors.
+
+```js
 const C = () => {}
 new C() // error
 ```
 
-## Common Uses
+---
 
-```
+## 8. Useful With Arrays
+
+```js
 arr.map(x => x * 2)
 arr.filter(x => x > 0)
-arr.reduce((a, x) => a + x, 0)
+arr.reduce((total, x) => total + x, 0)
 ```
 
 ---
 
 ## Quizzes
 
-1. Convert:
+1. Convert to arrow:
 
-```
+```js
 function add(a, b) { return a + b }
 ```
 
-2. Convert to implicit return:
+2. Convert to one-line implicit return:
 
-```
+```js
 const square = (x) => { return x * x }
 ```
 
-3. Fix:
+3. Fix object return:
 
-```
+```js
 const makeItem = () => { id: 1 }
 ```
 
 4. Replace `arguments`:
 
-```
+```js
 const sum = () => arguments[0] + arguments[1]
 ```
 
 5. Explain:
 
-```
+```js
 const obj = { val: 20, getVal: () => this.val }
 ```
 
@@ -182,7 +173,8 @@ const obj = { val: 20, getVal: () => this.val }
 
 ## Assignments
 
-1. `incrementAll(arr)` → return array with each value +1 using `map`.
-2. `filterEven(arr)` → return only even numbers using `filter`.
-3. `sumArray(arr)` → sum numbers using `reduce`.
-4. Create object with a method using regular function syntax to access `this`.
+1. Write `incrementAll(arr)` → return a new array where each number is increased by 1 using `map`.
+2. Write `filterEven(arr)` → return only even numbers using `filter`.
+3. Write `sumArray(arr)` → return the total using `reduce`.
+4. Create an object with a method that uses `this` correctly (no arrow function in the method).
+   `markdown`
