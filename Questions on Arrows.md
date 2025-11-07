@@ -106,6 +106,4 @@
 ```
 
 ---
-
-Would you like me to add a **“Solutions” section** (collapsed/hidden by default in Markdown) at the bottom, so learners can check their answers after attempting the questions?
 ```
