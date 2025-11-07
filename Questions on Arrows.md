@@ -5,11 +5,6 @@
 ````markdown
 # 🧠 JavaScript Arrow Functions & Array Methods — Practice Questions
 
-A collection of JavaScript practice questions focused on **arrow functions**, **`this` binding**, and **array methods (`map`, `filter`, `reduce`)**.  
-Use this set to test your understanding of modern ES6+ JavaScript concepts.
-
----
-
 ## ⚡ 1. Arrow Function Conversion
 
 1. Convert this traditional function into an arrow function:
