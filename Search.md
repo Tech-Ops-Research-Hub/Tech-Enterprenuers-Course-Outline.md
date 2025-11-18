@@ -148,3 +148,10 @@ ll.insert(3)
 print(ll.search(10))  # True
 print(ll.search(8))   # False
 ```
+## Questions
+### 1. Define a linked list and explain why search must be sequential.
+### 2. State the time and space complexity of linked-list search and justify each.
+### 3. Describe the exact steps executed when searching for a value that is not in the list.
+### 4. Rewrite the search algorithm so it returns the node instead of a boolean.
+### 5. Explain how search behaves in an empty list, a single-node list, and a list with duplicate values.
+
